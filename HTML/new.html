@@ -1,0 +1,65 @@
+<html>
+	<!-- head:主要放置页面的配置信息
+	head中可以加入：<title> <meta> <link> <style> <script> <base>标签
+	 -->
+	<head>
+		<!-- title标签：页面的标题 -->
+		<title>
+			小度随时为您服务
+		</title>
+		<!-- 有可能出现乱码，因为浏览器的对于字符编译方式可能是GBK -->
+		<!-- 告诉浏览器用UTF-8来解析这个html文档 -->
+		<meta charset="UTF-8"/>
+		<!-- 页面刷新效果，三秒中之后就会跳转到百度页面 -->
+		<!-- <meta http-equiv="refresh" content="3,https://www.baidu.com"/> -->
+		<!-- 作者信息 -->
+		<meta name = "author" content="大唐盛世"/>
+		<!-- 页面描述 -->
+		<meta name="description" content="李白，杜甫 白居易"/>
+		<!-- link标签引入外部的资源 -->
+		<!-- 将百度的标题图标引入到我自己这里来 -->
+		<link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon" />
+	</head>
+	<body>
+		<!-- 1：标题标签 -->
+		<!-- h1-h6  字号逐渐变小，每个标题独占一行，自带换行效果 -->
+		<!-- h7之后都属于无效标签，但是浏览器也不会报错，而是以普通文本的形式进行展现 -->
+		<h1>Fucking fucked</h1>
+		<h2>Fucking fucked</h2>
+		<h3>Fucking fucked</h3>
+		<h4>Fucking fucked</h4>
+		<h5>Fucking fucked</h5>
+		<h6>Fucking fucked</h6>
+		<!-- 2：横线标签 -->
+		<!-- width:设置宽度：300px ：固定宽度，30%：页面宽度的百分比，会随着页面宽度的变化而变化 -->
+		<!-- align：设置位置  left ,center,right    默认不写的话就是center居中效果 -->
+		<hr width="50%"/>
+		<hr width="300px" align="left"/>
+		
+		<!-- 3：段落标签 -->
+		<!-- 段落效果：段落中文字自动换行，段落和段落之间有空行 -->
+		<p>&nbsp;&nbsp;&nbsp;5月26日，“建议父母持合格父母证上岗”冲上&lt;微博热搜&gt;，迅速引发热议。&copy;在正在召开的全国两会上，全国政协委员许洪玲建议在社区举办家长课堂，建立“家长教育指导工作室”。</p>
+		
+		<!-- 4：加粗倾斜下划线 -->
+		<!-- br标签是用来换行的 -->
+		<b>草泥马</b><br />
+		<i>滚犊子</i><br />
+		<u>打不死你</u><br />
+		<b><u><i>妈的，草泥马</i></u></b>
+		
+		<!--5：一箭穿心删除效果-->
+		<br /><b><i><del>你喜欢我，我喜欢你</del></i></b>
+		
+		<!--6：预编译标签：在页面上显示原样效果-->
+		                <pre>
+public static void main(String[] args){
+	System.out.println("hello msb....");
+}
+		                </pre>
+						
+		<!-- 7：字体标签 -->
+		<font color="#397655" size="7" face = "楷体">建议父母持合格父母证上岗</font>
+						
+	
+	</body>
+</html>
