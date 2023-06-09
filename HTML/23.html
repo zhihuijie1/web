@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="" method="get">
+			<!--表单元素-->
+			<!-- 文本框
+			 input标签使用很广泛，通过type属性的不同值，来表现不同的形态。
+			 type="text"  文本框，里面文字可见
+			 表单元素必须有一个属性：name 有了name才可以提交数据,才可以采集数据
+			 然后提交的时候会以键值对的形式拼到一起。
+			 value:就是文本框中的具体内容
+			 键值对：name=value的形式
+			 如果value提前写好，那么默认效果就是value中内容。
+			 一般默认提示语：用placeholder属性，不会用value--》value只是文本框中的值。
+			 
+			 
+			 readonly只读：只是不能修改，但是其他操作都可以，可以正常提交
+			 disabled禁用：完全不用，不能正常提交
+			 
+			 
+			 写法：
+			 readonly="readonly"
+			 readonly
+			 readonly = "true"
+			 -->
+			 
+			 <input type="text" name = "unname" value = "fucking fucked"/> <br />
+			 <input type="text" name = "unname2" value = "" placeholder = "请输入你的身份信息"/> <br />
+			 <input type="text" name = "unname3" value = "123456" readonly = "true"/> <br />
+			 <input type="text" name = "unname4" value = "123" disabled = "true"/> <br />
+			 <input type="submit" value = "登录"/>
+			 
+			 <!--密码框:效果录入信息不可见-->
+			 <input type="password" name = "psw"/> <br />
+			 
+			 <!-- 单选按钮
+			  注意：一组单选按钮，必须通过name属性来控制，让它们在一个分组中，然后在一个分组里只能选择一个。
+			  正常状态下，提交数据为：gender=on ，后台不能区分你提交的数据，
+			  不同的选项的value值要控制为不同，这样后台接收就可以区分了。
+			  
+			  默认选中：checked="checked"。
+			  -->
+			  性别：
+			 <input type="radio" name = "gender" value="1" checked = "true"/> 男
+			 <input type = "radio" name = "gender" value="0"/> 女 <br />
+			 
+			 <!-- 多选按钮
+			  必须通过name属性来控制，让它们在一个分组中，然后在一个分组里可以选择多个。
+			  不同的选项的value值要控制为不同，这样后台接收就可以区分了。
+			  多个选项提交的时候，键值对用&符号进行拼接：例如下：
+			   favlan=1&favlan=3
+			  -->
+			 你最喜欢的编程语言是：
+			 <input type="checkbox" name = "favlan" value = "1" checked = true""/> java
+			 <input type="checkbox" name = "favlan" value = "2" /> python
+			 <input type="checkbox" name = "favlan" value = "3" checked = "true"/> javascrip
+			 <input type="checkbox" name = "favlan" value = "4" /> c++
+			 
+			 <!-- 文件
+			  让你选择一个文件
+			  -->
+			 <br /><input type="file"/> <br />
+			 
+			 <!--隐藏域-->
+			 <input type="hidden" name="uname6" value="123456"/> <br />
+			 
+			 <!--普通按钮：普通按钮没有什么效果，就是可以点击，以后学了js，可以加入事件-->
+			 <input type="button" value="普通按钮" /> <br />
+			 
+			 <!--特殊按钮：重置按钮将页面恢复到初始状态-->
+			 <input type="reset" /> <br />
+			 
+			 <!--特殊按钮：图片按钮-->
+			 <input type="image" src = "https://www.qqkw.com/d/file/p/2018/05-17/0515954b9ce3b4eee4774a73406ed5b6.jpg" width="10%"/> <br />
+			 
+			 <!-- 下拉列表
+			  默认选中：selected="selected"
+			  多选：multiple="multiple"
+			  -->
+			  
+			  你喜欢的城市
+			  <select name="city" multiple = "true" >
+				  <option value="1" selected> 北京</option>
+				  <option value="2"> 上海</option>
+				  <option value="3"> 广州</option>
+				  <option value="4"> 深圳</option>
+				  <option value="5"> 重庆</option>
+				  <option value="6"> 成都</option>
+				  <option value="7"> 杭州</option>
+				  <option value="8"> 苏州</option>
+				  <option value="9"> 武汉</option>
+				  <option value="10"> 青岛</option>
+			  </select>
+			  
+			  <!-- 多行文本框
+			   利用css样式来控制大小不可变：style="resize: none;"
+			   -->
+			   
+			   <br />自我介绍：
+			   <textarea style="resize: none;" rows="10" cols="30"> fuck you </textarea>
+			   
+			   <!-- label标签
+				一般会在想要获得焦点的标签上加入一个id属性，然后label中的for属性跟id配合使用。
+				这里实现的功能是：你点击用户名这个三个字，就会调换到输入文本框。
+				-->
+			   <label for="uname">用户名：</label> <input type="text" name="uername" id="uname"/>
+			   
+		</form>
+	</body>
+</html>
