@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		
+		<style type="text/css">
+			/*
+			【1】基本选择器：元素选择器：
+			 通过元素的名字进行定位，它会获取页面上所有这个元素，无论藏的多深都可以获取到
+			 格式：
+			 元素名字{
+				css样式;
+			 }
+			*/
+		   
+		   h1{
+			   color: blue;
+		   }
+		   h5{
+			   color: blue;
+		   }
+		   i{
+			   color: aqua;
+		   }
+		   
+		   /*
+		   【2】基本选择器：类选择器
+		    应用场合：不同类型的标签使用相同的类型
+		    格式：
+			.class的名字{	
+				css样式;
+			 }
+		   */	
+		  .class1{
+			  color: crimson;
+		  }
+		  
+		  /*
+		  【3】基本选择器：id选择器：
+		   应用场合：可以定位唯一的一个元素
+		   不同的标签确实可以使用相同的id，但是一般我们会进行人为的控制，让id是可以唯一定位到一个元素。
+		   格式：
+		   #id名字{
+			   css样式;	
+			   }
+		  */
+		 #asd{
+			 color: chocolate;
+		 }
+		 #aaa{
+			 color: darkgreen;
+		 }
+		</style>
+		
+	</head>
+	<body>
+		<h1>fuck <i> you </i> </h1>
+		<h1 class = "class1">你是谁</h1>
+		<h2 class = "class1">成龙大叔</h2>
+		<h3 id = "asd">杰森斯坦森</h3>
+		<h5><i id = "aaa"> 操他妈 </i></i></h5>
+	</body>
+</html>
