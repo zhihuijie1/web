@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客登录页</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img src="image/logo.jpg" alt="">
+        <span class="title">我的博客系统</span>
+        <!-- 这个 spacer 用来占位，把导航栏的三个按钮顶到右边 -->
+        <span class="spacer"></span>
+        <!-- 几个按钮 -->
+        <a href="blog_list.html">主页</a>
+        <a href="blog_edit.html">写博客</a>
+        <a href="register.html">注册</a>
+    </div>
+
+    <!-- 构造一个页面版心 -->
+    <div class="login-container">
+        <!-- 对话框 -->
+        <div class="login-dialog">
+            <form action="login" method="post">
+                <h3>登录</h3>
+                <div class="row">
+                    <span>用户名</span>
+                    <input type="text" id="username" name="username">
+                </div>
+                <div class="row">
+                    <span>密码</span>
+                    <input type="password" id="password" name="password">
+                </div>
+                <div class="row">
+                    <input type="submit" value="确定" id="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

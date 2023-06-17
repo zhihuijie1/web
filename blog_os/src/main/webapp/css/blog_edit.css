@@ -1,0 +1,45 @@
+.blog-edit-container {
+    width: 1000px;
+    height: calc(100% - 50px);
+    margin: 0 auto;
+}
+
+.title {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#title {
+    height: 40px;
+    width: 895px;
+    font-size: 24px;
+    padding-left: 5px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+#submit {
+    height: 40px;
+    width: 100px;
+    border-radius: 10px;
+    color: white;
+    background-color: orange;
+    border: none;
+}
+
+#submit:active {
+    background-color: grey;
+}
+
+#editor {
+    border-radius: 10px;
+    /* input 里面没有子元素，可以直接设置半透明 */
+    /* #editor 里面带有子元素，子元素没有设置半透明，整体就不能半透明 */
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* 使用 opacity 也能设置半透明，并且会被子元素继承 */
+    opacity: 80%;
+}
