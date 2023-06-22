@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>精美文件上传</title>
+  <style>
+    body {
+      background-image: url('');
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+    
+    h1 {
+      color: #FF69B4;
+    }
+    
+    .upload-form {
+      margin-top: 20px;
+    }
+    
+    .upload-form input[type="file"] {
+      display: none;
+    }
+    
+    .upload-button {
+      background-color: #FF69B4;
+      color: #FFF;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    
+    .upload-button:hover {
+      background-color: #FF4785;
+    }
+    
+    .selected-file {
+      margin-top: 10px;
+    }
+    
+    .selected-file span {
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>精美文件上传</h1>
+    <form class="upload-form" action="/upload" method="post" enctype="multipart/form-data">
+      <label for="file" class="upload-button">选择文件</label>
+      <input type="file" name="file" id="file">
+      <div class="selected-file">
+        <span>未选择文件</span>
+      </div>
+      <input type="submit" value="上传" class="upload-button">
+    </form>
+  </div>
+  
+  <script>
+    const fileInput = document.getElementById('file');
+    const selectedFileSpan = document.querySelector('.selected-file span');
+
+    fileInput.addEventListener('change', function() {
+      if (fileInput.files.length > 0) {
+        selectedFileSpan.textContent = fileInput.files[0].name;
+      } else {
+        selectedFileSpan.textContent = '未选择文件';
+      }
+    });
+  </script>
+</body>
+</html>
