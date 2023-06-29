@@ -1,0 +1,44 @@
+/* 当前样式只在列表页用到，所以单独成一个文件 */
+.blog {
+    width: 100%;
+    padding: 20px;
+}
+
+.blog .title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    padding: 10px 0;
+}
+
+.blog .date {
+    color: rgb(0, 128, 0);
+    text-align: center;
+    padding: 5px 0;
+}
+
+.blog .desc {
+    text-indent: 2em;
+}
+
+.blog a {
+    /* 转为块级元素，方便设置各种尺寸 */
+    display: block;
+    width: 140px;
+    height: 35px;
+    margin: 5px auto;
+    line-height: 35px;
+    border: 2px black solid;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+
+    /* 给按钮的颜色变化加个过渡 */
+    transition: all 0.1s;
+}
+
+/* 鼠标放上去之后，有颜色改变的效果 */
+.blog a:hover {
+    background-color: #333;
+    color: white;
+}

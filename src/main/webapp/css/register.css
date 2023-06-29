@@ -1,0 +1,56 @@
+.login-container {
+    height: calc(100% - 50px);
+    display: flex;
+    /* 水平居中 */
+    justify-content: center;
+    /* 垂直居中 */
+    align-items: center;
+}
+
+.login-container .login-dialog {
+    width: 400px;
+    height: 350px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+}
+
+.login-dialog h3 {
+    padding: 40px 0;
+    text-align: center;
+}
+
+.login-dialog .row {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-dialog .row span {
+    width: 100px;
+    font-weight: 700;
+}
+
+#username, #password{
+    width: 200px;
+    height: 40px;
+    font-size: 24px;
+    border: none;
+    /* 去掉鼠标点中时的边框（轮廓线） */
+    outline: none;
+    padding-left: 5px;
+    border-radius: 10px;
+}
+
+#submit {
+    width: 300px;
+    height: 40px;
+    color: white;
+    background-color: rgb(0, 128, 0);
+    border: none;
+    border-radius: 10px;
+}
+
+#submit:active {
+    background-color: grey;
+}

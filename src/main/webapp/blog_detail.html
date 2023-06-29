@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客详情页</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/blog_detail.css">
+
+    <!-- 引入 editor.md 的依赖 -->
+    <link rel="stylesheet" href="editor.md/css/editormd.min.css" />
+    <script src="js/jquery.min.js"></script>
+    <script src="editor.md/lib/marked.min.js"></script>
+    <script src="editor.md/lib/prettify.min.js"></script>
+    <script src="editor.md/editormd.js"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <img src="image/logo2.jpg" alt="">
+        <span class="title">我的博客系统</span>
+        <!-- 这个 spacer 用来占位，把导航栏的三个按钮顶到右边 -->
+        <span class="spacer"></span>
+        <!-- 几个按钮 -->
+        <a href="blog_list.html">主页</a>
+        <a href="blog_edit.html">写博客</a>
+        <a href="logout">注销</a>
+        <!-- 在这里加一个 删除 按钮 -->
+    </div>
+
+    <!-- 页面主体 -->
+    <div class="container">
+        <!-- 左侧个人信息 -->
+        <div class="container-left">
+            <!-- 用这个 .card 来表示用户信息 -->
+            <div class="card">
+                <img src="image/dog.png" alt="">
+                <h3>正婕</h3>
+                <a href="#">github 地址</a>
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+                <div class="counter">
+                    <!-- 加一个 id，方便选中 -->
+                    <span id="span">3</span>
+                    <span>2</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧内容详情 -->
+        <div class="container-right">
+            <!-- 用这个 div 来放博客的内容 -->
+            <div class="blog-content">
+                <!-- 博客标题 -->
+                <h3></h3>
+                <!-- 博客时间 -->
+                <div class="date"></div>
+                <!-- 博客正文 -->
+                <!-- 为了让这个标签容易在 js 中被获取，加一个 id -->
+                <div id="content" style="opacity: 80%">
+                    <!-- 把之前构造的死数据全都删掉 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="js/app.js"></script>
+    <script>
+        function getBlog() {
+            $.ajax({
+                type: 'get',
+                // 通过 location.search，就可以获取到当前页面的 url 中的 query string.
+                url: 'blog' + location.search,
+                success: function(body) {
+                    // body 就是得到的一个 json 格式的 blog 数据. 由于响应的 Content-Type 是 application/json
+                    // 因此 jquery 就会自动把响应数据转成 js 对象
+                    let h3 = document.querySelector('.blog-content h3');
+                    h3.innerHTML = body.title;
+                    let divDate = document.querySelector('.blog-content .date');
+                    divDate.innerHTML = body.postTime;
+                    // 这样是直接把正文内容设置到 innerHTML 中了，没有渲染的过程
+                    // let divContent = document.querySelector('.blog-content #content');
+                    // divContent.innerHTML = body.content;
+                    
+                    // 正确的做法是先使用 editor.md 进行渲染
+                    // [重要] 这个方法就是 editor.md 提供的一个方法，能够把 markdown 字符串转成格式化的效果
+                    // 第一个参数是一个 div 的 id，表示要把渲染结果放到哪个 div 中.
+                    // 第二个参数是一个 js 对象，把正文内容传入即可.（还支持很多别的参数属性，此处暂时不涉及）
+                    editormd.markdownToHTML('content', {
+                        markdown: body.content
+                    });
+                }
+            });
+        }
+
+        // 页面加载时，调用代码
+        getBlog();
+
+        // 验证登录状态
+        checkLogin();
+
+        // 获取博客作者的信息
+        function getUserInfo() {
+            $.ajax({
+                type: 'get',
+                url: 'userInfo' + location.search,
+                success: function(body) {
+                    // 让后端在查询失败时，不要返回 200，而是返回 403
+                    // 避免在前端触发 success 分支
+                    let h3 = document.querySelector('.card h3');
+                    h3.innerHTML = body.username;
+                    let num = document.querySelector('.counter #span');
+                    num.innerHTML = body.blogNum;
+                    if(body.isYourBlog) {
+                        // 在导航栏中加个按钮，用来删除文章.
+                        let deleteA = document.createElement('a');
+                        deleteA.href = 'blogDelete' + location.search;
+                        deleteA.innerHTML = '删除';
+                        
+                        let navDiv = document.querySelector('.nav');
+                        navDiv.appendChild(deleteA);
+                    }
+                }
+            });
+        }
+
+        getUserInfo();
+    </script>
+</body>
+</html>

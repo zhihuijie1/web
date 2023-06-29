@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    /* 高度 100% 意思是和父元素一样高 */
+    /* html 的父亲是浏览器窗口，body 的父亲是 html */
+    /* 让 body, html 和 浏览器窗口一样高，才好设置背景图 */
+    height: 100%;
+    background-image: url(../image/cat.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.nav {
+    width: 100%;
+    height: 50px;
+    background-color: rgba(50, 50, 50, 0.4);
+    color: white;
+    /* 弹性布局，让文字垂直居中 */
+    display: flex;
+    align-items: center;
+}
+
+.nav img {
+    width: 40px;
+    height: 40px;
+    /* 把图片设为圆形 -> 50% 宽度的一半 */
+    border-radius: 50%;
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+.nav .spacer {
+    width: 70%;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    /* 实现页面的样式效果，是有很多种写法的 */
+    /* 尤其是元素之间的间距，很多时候外边距和内边距都是可行的 */
+    /* 如果此处使用内边距，相当于是扩大了用户的点击范围 */
+    /* 用户没点到文字，点到了内边距上，也是可以跳转的 */
+    /* 如果是外边距，则点击范围比较小 */
+    margin: 0 10px;
+}
+
+.container {
+    width: 1000px;
+    /* calc 是 css 中的一个函数，进行尺寸的计算 */
+    /* 此处页面主体的高度是浏览器高度 (100%) - 导航栏高度 */
+    height: calc(100% - 50px);
+    margin: 0 auto;
+
+    /* 实现左右布局，就得用 flex */
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-left {
+    height: 100%;
+    width: 200px;
+}
+
+.container-right {
+    height: 100%;
+    width: 795px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    /* overflow 溢出，描述了内容溢出之后怎么办 */
+    /* auto 表示，如果内容溢出，就自动加滚动条；如果没溢出，就不加 */
+    overflow: auto;
+}
+
+
+.card {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    padding: 30px;
+}
+
+
+/* 用户头像 */
+.card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+}
+
+/* 用户名 */
+.card h3 {
+    text-align: center;
+    padding: 10px;
+}
+
+/* github 链接 */
+.card a {
+    /* a 标签是行内元素，转为块级元素 */
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    padding: 5px;
+    color: rgb(120, 118, 118);
+}
+
+.card .counter {
+    display: flex;
+    padding: 5px;
+    justify-content: space-around;
+}
