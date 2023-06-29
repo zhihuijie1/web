@@ -41,5 +41,7 @@ public class AuthorServlet extends HttpServlet {
         resp.setContentType("application/json; charset=utf8");
         resp.getWriter().write(respJson);
         System.out.println("yesy");
+
+        System.out.println("sdsadfsdgfskjdfkjjk xcv ");
     }
 }
