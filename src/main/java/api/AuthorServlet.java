@@ -40,5 +40,6 @@ public class AuthorServlet extends HttpServlet {
         String respJson = objectMapper.writeValueAsString(author);
         resp.setContentType("application/json; charset=utf8");
         resp.getWriter().write(respJson);
+        System.out.println("yesy");
     }
 }
